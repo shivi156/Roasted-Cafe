@@ -27,7 +27,13 @@
                     </li>
                 </ul>
                 <a asp-page="/Account/Register">Register </a>
+                <br/>
                 <a asp-page="/Account/Login">Log in</a>
+                <br/>
+                <form asp-page="/Account/Logout" method="post">
+                            <button type="submit">Logout</button>
+                        </form>
+
             </div>
         </div>
     </nav>
