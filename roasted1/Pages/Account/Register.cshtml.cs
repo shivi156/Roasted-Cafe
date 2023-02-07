@@ -1,16 +1,3 @@
-// using Microsoft.AspNetCore.Mvc.RazorPages;
-//
-// namespace roasted1.Pages.Account;
-//
-// public class Register : PageModel
-// {
-//
-//     public void OnGet()
-//     {
-//         
-//     }
-// }
-
 using System; 
 using System.Collections.Generic;
 using System.Linq;

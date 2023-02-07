@@ -19,7 +19,12 @@ namespace roasted1.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Menu>().ToTable("tbl_menu");
+            modelBuilder.Entity<Menu>(entity =>
+            {
+                entity.Property(e => e.Price).HasColumnType("money");
+                entity.ToTable("tbl_menu");
+            });
+                
             base.OnModelCreating(modelBuilder);
         }
     }

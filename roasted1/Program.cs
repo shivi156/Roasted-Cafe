@@ -10,9 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<roasted1Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("roasted1Context") ?? throw new InvalidOperationException("Connection string 'roasted1Context' not found.")));
-    builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<roasted1Context>()
     .AddDefaultTokenProviders();
+
+
 
 
 var app = builder.Build();
@@ -26,6 +29,12 @@ if (!app.Environment.IsDevelopment())
 }
 
 
+
+
+
+
+
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -37,6 +46,9 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 app.Run();
+
+
+
 
 
 
