@@ -16,7 +16,8 @@ namespace roasted1.Pages.Menus
 
 
 {
-    [Authorize(Roles = "Admin, Staff")]
+    [Authorize(Roles = "Admin")]
+ 
     
     public class EditModel : PageModel
     
