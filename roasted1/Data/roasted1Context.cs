@@ -13,6 +13,8 @@ namespace roasted1.Data
         public roasted1Context (DbContextOptions<roasted1Context> options)
             : base(options)
         {
+            
+            
         }
 
         public DbSet<roasted1.Models.Menu> Menu { get; set; } = default!;
