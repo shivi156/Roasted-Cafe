@@ -3,4 +3,5 @@ namespace roasted1.Data;
 
 public class ApplicationUser : IdentityUser
 {
+
 }

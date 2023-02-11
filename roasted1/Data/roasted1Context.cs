@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using roasted1.Models;
 
 namespace roasted1.Data
@@ -18,6 +19,10 @@ namespace roasted1.Data
         }
 
         public DbSet<roasted1.Models.Menu> Menu { get; set; } = default!;
+        public DbSet<CheckoutCustomer> CheckoutCustomers { get; set; }	
+        public DbSet<Basket> Baskets { get; set; }
+        public DbSet<BasketItem> BasketItems { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -28,8 +33,10 @@ namespace roasted1.Data
             });
                 
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<BasketItem>().HasKey(t => new { t.StockID, t.BasketID });
+           
         }
     }
 
-    
+  
 }

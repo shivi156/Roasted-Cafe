@@ -6,6 +6,8 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
+
+
 <h1>Index</h1>
 
 @if (User.IsInRole("Admin"))
@@ -13,22 +15,25 @@
     <p>
         <a asp-page="Create">Create New</a>
     </p>
+    
 }
 
+<form method="post">
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Menu[0].ItemName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Menu[0].Price)
-            </th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Menu[0].ItemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Menu[0].Price)
+        </th>
+        <th></th>
+    </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Menu) {
+    @foreach (var item in Model.Menu) {
+    
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.ItemName)
@@ -46,7 +51,20 @@
 
                 </td>
             }
+            
+            @if (User.IsInRole("Admin") == false)
+            {
+                <td>
+                    <button class="button" type="submit" asp-page-handler="Buy"
+                            asp-route-itemID="@item.Id">
+                        Buy
+                    </button>
+                </td>
+
+            }
         </tr>
-}
+    
+    }
     </tbody>
 </table>
+</form>
