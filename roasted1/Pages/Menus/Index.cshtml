@@ -8,63 +8,93 @@
 
 
 
-<h1>Index</h1>
+<h1 class="display-5">menu</h1>
+
+<div>
+    
+    <img class = "background" src="~/CoffeeImages/coffee8.jpg">
+</div>
 
 @if (User.IsInRole("Admin"))
 {
     <p>
-        <a asp-page="Create">Create New</a>
+        <a class="button1" asp-page="Create">Create New</a>
     </p>
     
 }
+@if (User.Identity.IsAuthenticated)
+{
+    @if (User.IsInRole("Admin") == false)
+    {
+    @* adding a button on the menu page to head to checkout page without going to the nav bar *@
+        <script>
+              function navigateToCheckout() {
+                window.location.href = "/checkout/checkout";
+              }
+            </script>
+        <!-- Your menu content -->
+        <button class="button1" onclick="navigateToCheckout()"> Proceed to Checkout </button>
+    }
+}
 
 <form method="post">
-<table class="table">
-    <thead>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Menu[0].ItemName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Menu[0].Price)
-        </th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model.Menu) {
+    <table class="table">
+        @* <thead> *@
+        @* <tr> *@
+        @*     <th class="text-white"> *@
+        @*         @Html.DisplayNameFor(model => model.Menu[0].ItemName) *@
+        @*     </th> *@
+        @*     <th class="text-white"> *@
+        @*         @Html.DisplayNameFor(model => model.Menu[0].Price) *@
+        @*     </th> *@
+        @*     <th></th> *@
+        @* </tr> *@
+        @* </thead> *@
+        <thead>
+                <tr class="text-white">
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Select Item to Add to Cart</th>
+                </tr>
+                </thead>
+        <tbody>
+        @foreach (var item in Model.Menu) {
     
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ItemName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            
-            @* the user can only edit.  *@
-            @if (User.IsInRole("Admin"))
-            {
+            <tr class="text-white">
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    @Html.DisplayFor(modelItem => item.ItemName)
                 </td>
-            }
-            
-            @if (User.IsInRole("Admin") == false)
-            {
                 <td>
-                    <button class="button" type="submit" asp-page-handler="Buy"
-                            asp-route-itemID="@item.Id">
-                        Add to Cart
-                    </button>
+                    @Html.DisplayFor(modelItem => item.Price)
                 </td>
+            
+                @* the user can only edit.  *@
+                @if (User.IsInRole("Admin"))
+                {
+                    <td>
+                        <a class="button" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a class="button" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a class="button" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                }
+              
+                    @if (User.IsInRole("Admin") == false)
+                    {
+                        <td>
+                            
+                            <button class="button button-cell" type="submit" asp-page-handler="Buy"
+                                    asp-route-itemID="@item.Id">
+                                Add to Cart
+                            </button>
+                        </td>
 
-            }
-        </tr>
+                    }
+                
+            </tr>
+        }
     
-    }
-    </tbody>
-</table>
+    
+    </table>
+
 </form>
+

@@ -10,12 +10,34 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
+<h1 class="display-4">roasted</h1>
 
-<img class = "img1" src="cafeImages/i.jpg">
-<img class = "img2" src="cafeImages/d.jpg">
-<img class = "img3" src="cafeImages/m.jpg">
 
-<h1 class="accordion-header" class="font-monospace"> roasted </h1>
+<div>
+<img class = "background" src="CoffeeImages/c.jpg">
+</div>
+
+<div class="about-us">
+<p>
+    Welcome to Roasted!
+    We are a family-owned and operated coffee shop dedicated to serving the 
+    best coffee and baked goods in town. 
+    Our passion for coffee and commitment to using only the finest ingredients 
+    has made us a staple in our community.
+    Our coffee beans are carefully selected from the top coffee-growing regions 
+    around the world and are roasted in small batches to ensure the richest and 
+    freshest flavor. Our bakers use only the best ingredients, and everything 
+    from our croissants to our cakes is made from scratch every day.
+    At Our Coffee Shop, we believe that coffee is more than just a drink - it's a social 
+    experience. That's why we have created a warm and welcoming atmosphere where you can 
+    enjoy a delicious cup of coffee and catch up with friends, family, or just relax and 
+    unwind. 
+</p>
+
+</div>
+
+
+
 
 
 @if (SignInManager.IsSignedIn(User))

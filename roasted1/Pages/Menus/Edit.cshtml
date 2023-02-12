@@ -7,34 +7,39 @@
     
 }
 
-    <h1>Edit</h1>
+<h1 class="display-5">Edit</h1>
+<div>
+    
+    <img class = "background" src="~/CoffeeImages/coffee8.jpg">
+</div>
 
-    <h4>Menu</h4>
     <hr/>
-    <div class="row">
-        <div class="col-md-4">
-            <form method="post">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form">
+        @* <div class="col-md-4"> *@
+            <form  method="post">
+                @* <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
                 <input type="hidden" asp-for="Menu.Id"/>
-                <div class="form-group">
-                    <label asp-for="Menu.ItemName" class="control-label"></label>
+                @* <div > *@
+                    <label asp-for="Menu.ItemName" class="control-label"> Name </label>
                     <input asp-for="Menu.ItemName" class="form-control"/>
-                    <span asp-validation-for="Menu.ItemName" class="text-danger"></span>
-                </div>
-                <div class="form-group">
+                <span asp-validation-for="Menu.ItemName" class="text-danger"></span>
+                <br/>
+                @* </div> *@
+                @* <div > *@
                     <label asp-for="Menu.Price" class="control-label"></label>
                     <input asp-for="Menu.Price" class="form-control"/>
-                    <span asp-validation-for="Menu.Price" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Save" class="btn btn-primary"/>
-                </div>
+                <span asp-validation-for="Menu.Price" class="text-danger"></span>
+                <br/>
+                @* </div> *@
+                @* <div > *@
+                    <input type="submit" value="Save" class="button"/>
+                @* </div> *@
             </form>
-        </div>
+        @* </div> *@
     </div>
 
     <div>
-        <a asp-page="./Index">Back to List</a>
+        <a class="button1" asp-page="./Index">Back to List</a>
     </div>
 
 @section Scripts {

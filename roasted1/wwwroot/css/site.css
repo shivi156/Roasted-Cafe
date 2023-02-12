@@ -1,8 +1,110 @@
+.background {
+  max-width: 100%;
+  background-position: center;
+  background-repeat: repeat;
+  padding: 0 0 0 0;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
 
+.nav-item {
+  font-family: "Poiret One", cursive;
+  font-size: 20px;
 
+}
 html {
   font-size: 14px;
+ 
 }
+
+.display-4 {
+  font-family: "Poiret One", cursive;
+  font-weight: bolder;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*padding: 0 0 0 0;*/
+  font-size: 3.5rem;
+  color: white;
+  width: 320px;
+  padding: 10px;
+  border: 6px solid white;
+  margin: 0;
+  text-align: center;
+}
+
+.display-5 {
+  font-family: "Poiret One", cursive;
+  font-weight: bolder;
+  font-size: 3.5rem;
+  /*font-size: 5.5rem;*/
+  color: white;
+  width: 320px;
+  padding: 10px;
+  /*width: 320px;*/
+  /*padding: 5px;*/
+  border: 6px solid white;
+  margin: 0 auto;
+  text-align: center;
+  
+}
+
+.display-6 {
+  font-family: "Poiret One", cursive;
+  font-weight: bolder;
+  font-size: 3.5rem;
+  /*font-size: 5.5rem;*/
+  color: black;
+  width: 320px;
+  padding: 10px;
+  /*width: 320px;*/
+  /*padding: 5px;*/
+  border: 6px solid black;
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+.display-7 {
+
+  font-family: "Poiret One", cursive;
+  font-weight: bolder;
+  font-size: 3.5rem;
+  /*font-size: 5.5rem;*/
+  color: white;
+  background-color: black;
+  opacity: 90%;
+  width: 320px;
+  padding: 10px;
+  /*width: 320px;*/
+  /*padding: 5px;*/
+  border: 6px solid black;
+  margin: 0 auto;
+  text-align: center;
+
+  
+
+}
+
+.about-us {
+  font-family: "Poiret One", cursive;
+  color: #ffffff;
+  font-weight: bolder;
+  font-size: 22px;
+  position: absolute;
+  margin-top: 10%;
+  background-color: black;
+  opacity: 85%;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+
 
 @media (min-width: 768px) {
   html {
@@ -25,58 +127,103 @@ body {
   /*justify-content: end;*/
   margin-top: 10px;
   margin-right: 10px;
-  width: 45%;
-  height: 45%;
+  width: 60%;
+  /*height: 45%;*/
   image-rendering: -moz-crisp-edges;
 }
-.img2  {
-  float: right;
-  width: 20%;
-  height: 20%;
-  margin-top: 10px;
-  clear: right;
-  margin-right: 20px;
- margin-left: 30px;
-  position: relative;
-  bottom: 0;
- 
-  
-}
 
-.img3 {
-  float: right;
-  width: 20%;
-  height: 20%;
-  margin-top: 10px;
-  /*margin: 100px;*/
-  /*clear: right;*/
-  
-}
+
+
+
 
 .button {
-  background-color: pink; /* Green */
-  border: none;
+  background-color: black; /* Green */
+  font-family: "Poiret One", cursive;
+  /*font-weight: bolder;*/
+  font-size: 18px;
+  font-weight: bolder;
+  border: 1px solid white;
   color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 14px;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 8px;
 }
 
+.button1 {
+  background-color: black; /* Green */
+  font-family: "Poiret One", cursive;
+  /*border: 2px solid white;*/
+  /*font-weight: bolder;*/
+  font-size: 18px;
+  font-weight: bolder;
+ 
+  color: white;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: 15px 30px;
+  border: 2px solid white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  /*margin: 4px 2px;*/
+  cursor: pointer;
+  border-radius: 8px;
+  float: right;
+}
+
+.button2 {
+  background-color: black; /* Green */
+  font-family: "Poiret One", cursive;
+  /*border: 2px solid white;*/
+  /*font-weight: bolder;*/
+  font-size: 18px;
+  font-weight: bolder;
+  color: white;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: 15px 30px;
+  border: 2px solid white;
+  text-align: center;
+  text-decoration: none;
+  /*display: inline-block;*/
+  /*margin: 4px 2px;*/
+  cursor: pointer;
+  border-radius: 4px;
+  align-content: center;
+  display: flex;
+  justify-content: center;
+}
+
 .button:hover {
-  background-color: lightpink;
+  background-color: #373b3e;
+  color: white;
+}
+
+.button1:hover {
+  background-color: #373b3e;
+  color: white;
+}
+
+.button2:hover {
+  background-color: #373b3e;
+  color: white;
 }
 
 .form {
   width: 50%;
-  margin: 0 auto;
-  background-color: #f2f2f2;
+  margin: 20px auto;
   padding: 20px;
   border-radius: 5px;
+  font-family: "Poiret One", cursive;
+  color: white;
+  border-collapse: collapse;
+  background-color: black;
+  opacity: 95%;
+  font-weight: bolder;
 }
 
 .input {
@@ -88,4 +235,24 @@ body {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
+table {
+  font-family: "Poiret One", cursive;
+  color: white;
+  width: 100%;
+  border-collapse: collapse;
+  background-color: black;
+  opacity: 95%;
+  margin-top: 30px;
+  font-weight: bolder;
+  
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 5px;
+  text-align: right;
+}
+
+
 
