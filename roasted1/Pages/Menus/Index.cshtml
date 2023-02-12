@@ -41,14 +41,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
+            
+            @* the user can only edit.  *@
             @if (User.IsInRole("Admin"))
             {
                 <td>
-
                     <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                     <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
                     <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-
                 </td>
             }
             
@@ -57,7 +57,7 @@
                 <td>
                     <button class="button" type="submit" asp-page-handler="Buy"
                             asp-route-itemID="@item.Id">
-                        Buy
+                        Add to Cart
                     </button>
                 </td>
 

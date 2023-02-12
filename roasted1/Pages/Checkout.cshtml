@@ -1,0 +1,50 @@
+@page
+@model roasted1.Pages.Checkout
+
+@{
+    ViewData["Title"] = "Checkout";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+
+}
+
+    <h1>Checkout</h1>
+    <form method="post">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th></th>
+                <th>Subtotal</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            @foreach (var item in Model.Items)
+            {
+                var subtotal = item.Price * item.Quantity;
+                <tr>
+                    <td>@item.ItemName</td>
+                    <td>@item.Price.ToString("C")</td>
+                    
+                    <td>
+                        <button type="submit">+</button>
+                        <button type="submit">-</button>
+                    </td>
+                    <td>@item.Quantity</td>
+                    <td>@subtotal.ToString("C")</td>
+                </tr>
+
+            }
+            </tbody>
+        </table>
+        
+        @* the user will see the 'Buy' button only when they have something in their cart,
+        and not when their cart is empty. This will not create confusion.  *@
+        
+        @if (Model.Items.Count > 0)
+        {
+            <button class="button" type="submit" asp-page-handler="Buy">Buy</button>
+        }
+    </form>
