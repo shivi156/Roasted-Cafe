@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "URkJ+7czCrSDrLcibwTkJbnsX4+dbmICkhaJmHVzCLI=",
+  "Hash": "7v70nj52zP4pe9nieFrua458QMUR250uUmdA/HfGuEU=",
   "Source": "roasted1",
   "BasePath": "_content/roasted1",
   "Mode": "Default",
@@ -610,6 +610,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/CoffeeImages/coffee9.jpg"
+    },
+    {
+      "Identity": "/Users/swarnimasingh/Desktop/roasted1/roasted1/wwwroot/CoffeeImages/i.jpg",
+      "SourceId": "roasted1",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/swarnimasingh/Desktop/roasted1/roasted1/wwwroot/",
+      "BasePath": "_content/roasted1",
+      "RelativePath": "CoffeeImages/i.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/CoffeeImages/i.jpg"
     },
     {
       "Identity": "/Users/swarnimasingh/Desktop/roasted1/roasted1/wwwroot/CoffeeImages/imgdb1.jpg",

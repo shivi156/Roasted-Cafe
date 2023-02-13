@@ -316,3 +316,16 @@ th, td {
   float: right;
   border: 1px solid black;
 }
+
+.footer-link {
+  font-size: 14px;
+  font-weight: bolder;
+  /*border: 2px solid white;*/
+  text-decoration: none;
+  /*color : white;*/
+  margin-right: 10px;
+}
+
+.footer-link:hover {
+  color: black;
+}

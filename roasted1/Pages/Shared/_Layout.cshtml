@@ -47,9 +47,12 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Contact/Contact">Contact Us</a>
                         </li>
                     }
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Admin/Admin">Admin</a>
-                    </li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Admin/Admin">Admin</a>
+                        </li>
+                    }
                         @if (SignInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
@@ -83,8 +86,14 @@
 </div>
 
 <footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2023 - roasted1 - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    <div class="container text-white text-center">
+        &copy; 2023 - ROASTED  <a asp-area="" asp-page=""></a>
+        <a class="footer-link text-white" href="http://validator.w3.org/check?uri=referer">Validate HTML</a>
+        <a class="footer-link text-white" href="http://jigsaw.w3.org/css-validator/check/referer">Validate CSS</a>
+        @if (User.IsInRole("Admin"))
+        {
+            <a class="footer-link" asp-page="/Admin/Admin">Admin</a>
+        }
     </div>
 </footer>
 
