@@ -1,4 +1,6 @@
 @page
+@using roasted1.Models
+@using Microsoft.AspNetCore.Mvc.TagHelpers
 @model roasted1.Pages.Menus.IndexModel
 
 @{
@@ -37,29 +39,32 @@
     }
 }
 
+
+
+
 <form method="post">
+    @* *@
+    @* <div> *@
+    @*   <input type="text" id="searchInput"> *@
+    @*   <button onclick="search()">Search</button> *@
+    @* </div> *@
     <table class="table">
-        @* <thead> *@
-        @* <tr> *@
-        @*     <th class="text-white"> *@
-        @*         @Html.DisplayNameFor(model => model.Menu[0].ItemName) *@
-        @*     </th> *@
-        @*     <th class="text-white"> *@
-        @*         @Html.DisplayNameFor(model => model.Menu[0].Price) *@
-        @*     </th> *@
-        @*     <th></th> *@
-        @* </tr> *@
-        @* </thead> *@
+
         <thead>
-                <tr class="text-white">
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Select Item to Add to Cart</th>
-                </tr>
-                </thead>
+
+        <tr class="text-white">
+            <th>Name</th>
+            <th>Price</th>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <th class="right-alignment">Select Item to Add to Cart</th>
+            }
+        </tr>
+        </thead>
         <tbody>
-        @foreach (var item in Model.Menu) {
-    
+        @foreach (var item in Model.Menu)
+        {
+
             <tr class="text-white">
                 <td>
                     @Html.DisplayFor(modelItem => item.ItemName)
@@ -67,7 +72,8 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
-            
+
+
                 @* the user can only edit.  *@
                 @if (User.IsInRole("Admin"))
                 {
@@ -77,24 +83,51 @@
                         <a class="button" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
                     </td>
                 }
-              
+                @if (User.Identity.IsAuthenticated)
+                {
                     @if (User.IsInRole("Admin") == false)
                     {
-                        <td>
-                            
+                        <td class="right-alignment">
                             <button class="button button-cell" type="submit" asp-page-handler="Buy"
                                     asp-route-itemID="@item.Id">
                                 Add to Cart
                             </button>
-                        </td>
 
+
+                        </td>
                     }
-                
+                }
+
             </tr>
         }
-    
-    
+
     </table>
 
+
+@*     <script> *@
+@*       function search() { *@
+@*         // Get the search input value *@
+@*         var searchValue = document.getElementById("searchInput").value.toLowerCase(); *@
+@*      *@
+@*         // Get all the menu rows *@
+@*         var menuRows = document.getElementsByClassName("menuRow"); *@
+@*      *@
+@*         // Loop through each menu row *@
+@*         for (var i = 0; i < menuRows.length; i++) { *@
+@*           var menuRow = menuRows[i]; *@
+@*           var menuName = menuRow.getElementsByTagName("td")[0].textContent.toLowerCase(); *@
+@*      *@
+@*           // If the menu name doesn't match the search value, hide the row *@
+@*           if (!menuName.includes(searchValue)) { *@
+@*             menuRow.style.display = "none"; *@
+@*           } else { *@
+@*             menuRow.style.display = ""; *@
+@*           } *@
+@*         } *@
+@*       } *@
+@*     </script> *@
+
 </form>
+
+
 

@@ -15,6 +15,11 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<roasted1Context>()
     .AddDefaultTokenProviders();
 
+
+  
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

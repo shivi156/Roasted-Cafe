@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using roasted1.Data;
+using System.Linq;
+using roasted1.Models;
+
 
 namespace roasted1.Pages.Checkout;
 
@@ -16,7 +19,7 @@ public class Checkout : PageModel
     private readonly roasted1Context _db;
     private readonly UserManager<ApplicationUser> _UserManager;
     public IList<CheckoutItems> Items { get; private set; }
-    public decimal Total = 0;
+    // public decimal Total = 0;
 
     public Checkout(roasted1Context db, 
         UserManager<ApplicationUser> UserManager)
@@ -94,6 +97,36 @@ public class Checkout : PageModel
 
         return RedirectToPage("/Checkout/ThankYou");
     }
+    
+    public async Task<IActionResult> OnPostIncreaseAsync(int id)
+    {
+        var user = await _UserManager.GetUserAsync(User);
+        CheckoutCustomer customer = await _db
+            .CheckoutCustomers
+            .FindAsync(user.Email);
+
+        var basketItem = 
+            _db.BasketItems
+                .FromSqlRaw("SELECT StockID, BasketID, Quantity From BasketItems " +
+                            "WHERE BasketID = {0} and StockID = {1}", customer.BasketID, id)
+                .FirstOrDefault();
+
+        if (basketItem == null)
+        {
+            return NotFound();
+        }
+
+        basketItem.Quantity++;
+        _db.BasketItems.Update(basketItem);
+        await _db.SaveChangesAsync();
+
+        return RedirectToPage();
+    }
+
+    
+
+    
+ 
 
     
     

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using roasted1.Data;
 using roasted1.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using roasted1.Pages.Account;
 
 
 namespace roasted1.Pages.Menus
@@ -37,6 +38,8 @@ namespace roasted1.Pages.Menus
                 Menu = await _context.Menu.ToListAsync();
             }
         }
+        
+     
 
         public async Task<IActionResult> OnPostBuyAsync(int itemID)
         {
@@ -74,6 +77,7 @@ namespace roasted1.Pages.Menus
                 }
             }
             return RedirectToPage();
+            
         }
 
           

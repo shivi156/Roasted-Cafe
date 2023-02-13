@@ -9,6 +9,13 @@
   left: 0;
 }
 
+.text {
+  font-weight: bolder;
+  margin-right: 10px;
+  font-size: 22px;
+}
+
+
 .nav-item {
   font-family: "Poiret One", cursive;
   font-size: 20px;
@@ -31,7 +38,7 @@ html {
   color: white;
   width: 320px;
   padding: 10px;
-  border: 6px solid white;
+  border: 4px solid white;
   margin: 0;
   text-align: center;
 }
@@ -102,6 +109,35 @@ html {
   padding-right: 3vw;
   margin-left: 20%;
   margin-right: 20%;
+}
+
+.msg {
+  /*font-family: "Poiret One", cursive;*/
+  /*color: #ffffff;*/
+  /*font-weight: bolder;*/
+  /*font-size: 50px;*/
+  /*position: absolute;*/
+  /*margin-top: 10%;*/
+  /*background-color: black;*/
+  /*opacity: 85%;*/
+  /*padding-left: 10vw;*/
+  /*padding-right: 10vw;*/
+  /*margin-left: 10vw;*/
+  /*margin-right: 10vw;*/
+  font-family: "Poiret One", cursive;
+  color: #ffffff;
+  font-weight: bolder;
+  font-size: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  opacity: 90%;
+  padding: 10px;
+  text-align: center;
+
+
 }
 
 
@@ -182,6 +218,7 @@ body {
   /*font-weight: bolder;*/
   font-size: 18px;
   font-weight: bolder;
+
   color: white;
   margin-top: 5px;
   margin-bottom: 10px;
@@ -189,13 +226,11 @@ body {
   border: 2px solid white;
   text-align: center;
   text-decoration: none;
-  /*display: inline-block;*/
+  display: inline-block;
   /*margin: 4px 2px;*/
   cursor: pointer;
-  border-radius: 4px;
-  align-content: center;
-  display: flex;
-  justify-content: center;
+  border-radius: 8px;
+  float: left;
 }
 
 .button:hover {
@@ -251,8 +286,14 @@ table {
 th, td {
   border: 1px solid #ddd;
   padding: 5px;
-  text-align: right;
-}
+  text-align: center;
+} 
+
+/*.right-alignment {*/
+/*  border: 1px solid #ddd;*/
+/*  padding: 5px;*/
+/*  text-align: center;*/
+/*}*/
 
 
 

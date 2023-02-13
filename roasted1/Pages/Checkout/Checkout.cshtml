@@ -8,11 +8,11 @@
 
 }
 
-<h1 class="display-5">checkout</h1>
+    <h1 class="display-5">checkout</h1>
 
-<div>
-<img class = "background" src="~/CoffeeImages/coffee4.jpg">
-</div>
+    <div>
+        <img class="background" src="~/CoffeeImages/coffee8.jpg">
+    </div>
 
 
 
@@ -23,28 +23,32 @@
         <tr class="text-white">
             <th>Name</th>
             <th>Price</th>
-            <th>Change</th>
+            <th>Modify</th>
             <th>Quantity</th>
             <th>Subtotal</th>
         </tr>
         </thead>
-
         <tbody class="text-white">
-        @foreach (var item in Model.Items)
+        @if (Model.Items.Count == 0)
         {
-            var subtotal = item.Price * item.Quantity;
-            <tr>
-                <td>@item.ItemName</td>
-                <td>@item.Price.ToString("C")</td>
-
-                <td>
-                    <button class="button" type="submit">+</button>
-                    <button class="button" type="submit">-</button>
-                </td>
-                <td>@item.Quantity</td>
-                <td>@subtotal.ToString("C")</td>
-            </tr>
-
+            <p class="msg">Your cart is empty!</p>
+        }
+        else
+        {
+            @foreach (var item in Model.Items)
+            {
+                var subtotal = item.Price * item.Quantity;
+                <tr>
+                    <td>@item.ItemName</td>
+                    <td>@item.Price.ToString("C")</td>
+                    <td>
+                        <button class="button" type="submit" asp-page-handler="IncreaseQuantity" asp-route-itemId="@item.ID">+</button>
+                        <button class="button" type="submit" asp-page-handler="DecreaseQuantity" asp-route-itemId="@item.ID">-</button>
+                    </td>
+                    <td>@item.Quantity</td>
+                    <td>@subtotal.ToString("C")</td>
+                </tr>
+            }
         }
         </tbody>
     </table>
@@ -56,4 +60,16 @@
     {
         <button class="button1" type="submit" asp-page-handler="Buy">Buy</button>
     }
+        
+
 </form>
+
+                <script>
+                      function navigateToCheckout() {
+                        window.location.href = "/Menus/Index";
+                      }
+                    </script>
+                <!-- Your menu content -->
+                <button class="button2" onclick="navigateToCheckout()"> Previous </button>
+
+
