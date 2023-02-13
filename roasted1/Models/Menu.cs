@@ -7,6 +7,6 @@ public class Menu
     public decimal Price { get; set; }
    
     public string ImageDescription { get; set; }
-    public static byte[] ImageData { get; set; }
+    public byte[] ImageData { get; set; }
    
 }

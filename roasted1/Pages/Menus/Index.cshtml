@@ -3,6 +3,8 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @model roasted1.Pages.Menus.IndexModel
 
+
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Pages/Shared/_Layout.cshtml";
@@ -82,21 +84,14 @@
                 </td>
                     @{
                         try
-                                        {
-                                            <td>
-                                                <img class="img" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(Menu.ImageData))"/>
-                                            </td>
-                                        }
-                                        catch
-                                        {
-                                            <td>
-                                                <img src="/Images/empty.png" alt="No Image provided"/>
-                                            </td>
-                                        
-                                        }
-                
-                    
-                }
+                        {<td>
+                             <img class="img" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.ImageData))" alt="@item.ImageDescription"/>
+                         </td> }
+                        catch
+                        { <td>
+                              <img class="img" src="~/CoffeeImages/coffee6.jpg" alt="No Image provided"/>
+                          </td> }
+                    }
 
 
 
