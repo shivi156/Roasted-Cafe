@@ -11,46 +11,38 @@
 }
 
 
-
 <h1 class="display-5">menu</h1>
 
 <div>
-    
-    @* <img class = "background" src="~/CoffeeImages/coffee8.jpg"> *@
     <img class="background" src="~/CoffeeImages/coffee8.jpg">
 </div>
+
+@if (User.Identity.IsAuthenticated)
+{
+    @if (User.IsInRole("Admin") == false)
+    {
+        <a class="button1" asp-page="/Checkout/Checkout">Proceed to Checkout</a>
+    @* adding a button on the menu page to head to checkout page without going to the nav bar *@
+        @* <script> *@
+        @* function navigateToCheckout() { *@
+        @*     window.location.href = "/Checkout/Checkout"; *@
+        @* } *@
+        @* </script> *@
+        @* <!-- Your menu content --> *@
+        @* <button class="button1" onclick="navigateToCheckout()"> Proceed to Checkout </button> *@
+    }
+}
 
 @if (User.IsInRole("Admin"))
 {
     <p>
         <a class="button1" asp-page="Create">Create New</a>
     </p>
-    
-}
-@if (User.Identity.IsAuthenticated)
-{
-    @if (User.IsInRole("Admin") == false)
-    {
-    @* adding a button on the menu page to head to checkout page without going to the nav bar *@
-        <script>
-              function navigateToCheckout() {
-                window.location.href = "/checkout/checkout";
-              }
-            </script>
-        <!-- Your menu content -->
-        <button class="button1" onclick="navigateToCheckout()"> Proceed to Checkout </button>
-    }
 }
 
 
-
-
+<input class="search-bar" type="text" id="myInput" onkeyup="myFunction()" placeholder="search menu..">
 <form method="post">
-    @* *@
-    @* <div> *@
-    @*   <input type="text" id="searchInput"> *@
-    @*   <button onclick="search()">Search</button> *@
-    @* </div> *@
     
 
     <table class="table">
@@ -82,16 +74,19 @@
                 <td>
                     <a class="button" asp-page="./Details" asp-route-id="@item.Id">Details</a>
                 </td>
-                    @{
-                        try
-                        {<td>
-                             <img class="img" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.ImageData))" alt="@item.ImageDescription"/>
-                         </td> }
-                        catch
-                        { <td>
-                              <img class="img" src="~/CoffeeImages/coffee6.jpg" alt="No Image provided"/>
-                          </td> }
+                @{
+                    try
+                    {<td>
+                         <img class="img" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.ImageData))" alt="@item.ImageDescription"/>
+                     </td>
                     }
+                    catch
+                    {
+                        <td>
+                            <img class="img" src="~/CoffeeImages/coffee6.jpg" alt="No Image provided"/>
+                        </td>
+                    }
+                }
 
 
 
@@ -123,31 +118,32 @@
 
     </table>
 
-
-@*     <script> *@
-@*       function search() { *@
-@*         // Get the search input value *@
-@*         var searchValue = document.getElementById("searchInput").value.toLowerCase(); *@
-@*      *@
-@*         // Get all the menu rows *@
-@*         var menuRows = document.getElementsByClassName("menuRow"); *@
-@*      *@
-@*         // Loop through each menu row *@
-@*         for (var i = 0; i < menuRows.length; i++) { *@
-@*           var menuRow = menuRows[i]; *@
-@*           var menuName = menuRow.getElementsByTagName("td")[0].textContent.toLowerCase(); *@
-@*      *@
-@*           // If the menu name doesn't match the search value, hide the row *@
-@*           if (!menuName.includes(searchValue)) { *@
-@*             menuRow.style.display = "none"; *@
-@*           } else { *@
-@*             menuRow.style.display = ""; *@
-@*           } *@
-@*         } *@
-@*       } *@
-@*     </script> *@
-
 </form>
+
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementsByClassName("table")[0];
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+
 
 
 

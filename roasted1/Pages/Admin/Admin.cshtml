@@ -12,18 +12,25 @@
 <div>
     <img class = "background" src="~/CoffeeImages/coffee10.jpg">
 </div>
+
 @if (User.Identity.IsAuthenticated)
 {
     @if (User.IsInRole("Admin"))
         
     {
-        <script>
-        function navigateToCheckout() {
-            window.location.href = "/Menus/Index";
-        }
-        </script>
-        <!-- Your menu content -->
-        <button class="button1" onclick="navigateToCheckout()"> Manage Menu </button>
+        
+        <a class="button1" asp-page="/Menus/Index">Manage Menu</a>
+        @* <script> *@
+        @* function navigateToMenu() { *@
+        @*     window.location.href = "/Menus/Index"; *@
+        @* } *@
+        @* </script> *@
+        @* <!-- Your menu content --> *@
+        @* <button class="button1" onclick="navigateToMenu()"> Manage Menu </button> *@
+        
+        
+            
+        
     }
 
     @if (User.IsInRole("Admin") == false)
