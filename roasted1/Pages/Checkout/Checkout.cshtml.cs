@@ -104,23 +104,23 @@ public class Checkout : PageModel
         CheckoutCustomer customer = await _db
             .CheckoutCustomers
             .FindAsync(user.Email);
-
+        
         var basketItem = 
             _db.BasketItems
-                .FromSqlRaw("SELECT StockID, BasketID, Quantity From BasketItems " +
+                .FromSqlRaw("SELECT * From BasketItems " +
                             "WHERE BasketID = {0} and StockID = {1}", customer.BasketID, id)
                 .FirstOrDefault();
-
+        
         if (basketItem == null)
         {
             return NotFound();
         }
-
+        
         basketItem.Quantity++;
         _db.BasketItems.Update(basketItem);
         await _db.SaveChangesAsync();
-
         return RedirectToPage();
+    
     }
 
     

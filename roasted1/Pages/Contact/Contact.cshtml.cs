@@ -1,40 +1,41 @@
 using System.Net.Mail;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NuGet.Protocol.Plugins;
+using System.Net;
+using System.Net.Mail;
+
 
 namespace roasted1.Pages.Contact;
 
 public class Contact : PageModel
 {
-    public void OnGet()
-    {
-        
-    }
 
     public void OnPost()
     {
-        var Name = Request.Form["Name"];
-        var Email = Request.Form["Email"];
-        var Message = Request.Form["Message"];
-        // SendMail(Name, Email, Message);
+        var name = Request.Form["name"];
+        var email = Request.Form["emailaddress"];
+        var message = Request.Form["message"];
+        SendMail(name, email, message);
+    }
+    public bool SendMail(string name, string email, string message1)
+    {
+        MailMessage message = new MailMessage();
+        SmtpClient smtpClient = new SmtpClient();
+        message.From = new MailAddress(email);
+        message.To.Add("2123818@chester.ac.uk");
+        message.Subject = "Contact";
+        message.IsBodyHtml = true;
+        message.Body = "<p>Name: " + name + "</p>" + "<p>Email: " + email + "</p>" + "<p>Message: " + message1 + "</p>";
+
+        smtpClient.Port = 587;
+        smtpClient.Host = "smtp.gmail.com";
+        smtpClient.EnableSsl = true;
+        smtpClient.UseDefaultCredentials = false;
+        smtpClient.Credentials = new NetworkCredential("roastedchester@gmail.com", "jwfjiledlljtatfc");
+        smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+        smtpClient.Send(message);
+        return true;
     }
 
-    // public object Name { get; set; }
-    // public object Email { get; set; }
-    // public object Message { get; set; }
-
-    // public void SendMail(string Name, string Email, string Message)
-    // {
-    //     MailMessage message = new MailMessage();
-    //     SmtpClient smtpClient = new SmtpClient();
-    //     message.From = new MailAddress("ney@psg.com");
-    //     message.To.Add("swarnimasingh156@gmail.com");
-    //     message.Subject = "test email";
-    //     message.IsBodyHtml = true;
-    //     message.Body = "<p>Name: " + Name + "</p>" + "<p>Email: " + Email + "</p>" + "<p>Message: " + Message + "</p>";
-    //
-    //     smtpClient.Port = 7126;
-    //     
-    // }
- 
 }

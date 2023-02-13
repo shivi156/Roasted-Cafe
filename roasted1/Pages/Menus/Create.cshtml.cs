@@ -35,14 +35,24 @@ namespace roasted1.Pages.Menus
         public async Task<IActionResult> OnPostAsync()
         {
           if (!ModelState.IsValid || _context.Menu == null || Menu == null)
-            {
+          {
                 return Page();
-            }
+          }
+          
+          foreach (var file in Request.Form.Files)
+          {
+              MemoryStream ms = new MemoryStream();
+              file.CopyTo(ms);
+              Menu.ImageData = ms.ToArray();
+              ms.Close();
+              ms.Dispose();
+          }
 
-            _context.Menu.Add(Menu);
-            await _context.SaveChangesAsync();
+          _context.Menu.Add(Menu);
+          await _context.SaveChangesAsync();
+          return RedirectToPage("/Menus/Index");
 
-            return RedirectToPage("./Index");
+
         }
     }
 }

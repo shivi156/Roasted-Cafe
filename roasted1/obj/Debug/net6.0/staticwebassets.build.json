@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PmOremThvoDJOh0xhvkGf+Tv7MQVBR3TBmvPqjE0Yas=",
+  "Hash": "EbP+muU4av+yyQ9wIcGGAYUhXZI+yoAqIuaMpJCRqJw=",
   "Source": "roasted1",
   "BasePath": "_content/roasted1",
   "Mode": "Default",
@@ -391,6 +391,40 @@
       "OriginalItemSpec": "wwwroot/CoffeeImages/.DS_Store"
     },
     {
+      "Identity": "/Users/swarnimasingh/Desktop/roasted1/roasted1/wwwroot/CoffeeImages/americano1.jpg",
+      "SourceId": "roasted1",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/swarnimasingh/Desktop/roasted1/roasted1/wwwroot/",
+      "BasePath": "_content/roasted1",
+      "RelativePath": "CoffeeImages/americano1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/CoffeeImages/americano1.jpg"
+    },
+    {
+      "Identity": "/Users/swarnimasingh/Desktop/roasted1/roasted1/wwwroot/CoffeeImages/americano2.jpg",
+      "SourceId": "roasted1",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/swarnimasingh/Desktop/roasted1/roasted1/wwwroot/",
+      "BasePath": "_content/roasted1",
+      "RelativePath": "CoffeeImages/americano2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/CoffeeImages/americano2.jpg"
+    },
+    {
       "Identity": "/Users/swarnimasingh/Desktop/roasted1/roasted1/wwwroot/CoffeeImages/c.jpg",
       "SourceId": "roasted1",
       "SourceType": "Discovered",
@@ -423,6 +457,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/CoffeeImages/coffe1.jpg"
+    },
+    {
+      "Identity": "/Users/swarnimasingh/Desktop/roasted1/roasted1/wwwroot/CoffeeImages/coffee10.jpg",
+      "SourceId": "roasted1",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/swarnimasingh/Desktop/roasted1/roasted1/wwwroot/",
+      "BasePath": "_content/roasted1",
+      "RelativePath": "CoffeeImages/coffee10.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/CoffeeImages/coffee10.jpg"
     },
     {
       "Identity": "/Users/swarnimasingh/Desktop/roasted1/roasted1/wwwroot/CoffeeImages/coffee2.jpg",

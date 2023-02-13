@@ -6,9 +6,7 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
-
-<h4>Menu</h4>
+<h1 class="display-5">Create</h1>
 
 
 
@@ -26,13 +24,22 @@
                 <input asp-for="Menu.Price" class="form-control" />
                 <span asp-validation-for="Menu.Price" class="text-danger"></span>
             </div>
+            <div>Image Description <input asp-for="Menu.ImageDescription" /></div>
+            <div>Upload Image:<br />
+                <input type="file" id="file1"
+                       name="file1"
+                       multiple="multiple" />
+                </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
+
                 
         </form>
     </div>
 </div>
+
+
 
 <div>
     <a asp-page="Index">Back to List</a>

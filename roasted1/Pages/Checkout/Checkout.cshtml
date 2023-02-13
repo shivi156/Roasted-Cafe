@@ -10,9 +10,10 @@
 
     <h1 class="display-5">checkout</h1>
 
-    <div>
-        <img class="background" src="~/CoffeeImages/coffee8.jpg">
-    </div>
+<div>
+    <img class = "background" src="~/CoffeeImages/coffee3.jpg">
+    @* <img class="background" src="~/CoffeeImages/coffee8.jpg"> *@
+</div>
 
 
 
@@ -42,7 +43,8 @@
                     <td>@item.ItemName</td>
                     <td>@item.Price.ToString("C")</td>
                     <td>
-                        <button class="button" type="submit" asp-page-handler="IncreaseQuantity" asp-route-itemId="@item.ID">+</button>
+                        
+                        <button class="button" type="submit" asp-page-handler="Increase" asp-route-itemId="@item.ID">+</button>
                         <button class="button" type="submit" asp-page-handler="DecreaseQuantity" asp-route-itemId="@item.ID">-</button>
                     </td>
                     <td>@item.Quantity</td>
