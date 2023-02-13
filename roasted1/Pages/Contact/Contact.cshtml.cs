@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NuGet.Protocol.Plugins;
 using System.Net;
-using System.Net.Mail;
+
 
 
 namespace roasted1.Pages.Contact;
@@ -24,7 +24,7 @@ public class Contact : PageModel
             SendMail(name, email, message);
             isSend = "send";
         }
-        catch (Exception e)
+        catch (Exception)
         {
             isSend = "failed";
             throw;
