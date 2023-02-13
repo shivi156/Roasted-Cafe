@@ -43,7 +43,6 @@
                     <td>@item.ItemName</td>
                     <td>@item.Price.ToString("C")</td>
                     <td>
-                        
                         <button class="button" type="submit" asp-page-handler="Increase" asp-route-itemId="@item.ID">+</button>
                         <button class="button" type="submit" asp-page-handler="DecreaseQuantity" asp-route-itemId="@item.ID">-</button>
                     </td>

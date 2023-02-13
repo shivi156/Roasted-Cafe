@@ -10,13 +10,26 @@ namespace roasted1.Pages.Contact;
 
 public class Contact : PageModel
 {
+    
+    public string isSend { get; set; }
 
     public void OnPost()
     {
         var name = Request.Form["name"];
         var email = Request.Form["emailaddress"];
         var message = Request.Form["message"];
-        SendMail(name, email, message);
+
+        try
+        {
+            SendMail(name, email, message);
+            isSend = "send";
+        }
+        catch (Exception e)
+        {
+            isSend = "failed";
+            throw;
+        }
+        
     }
     public bool SendMail(string name, string email, string message1)
     {

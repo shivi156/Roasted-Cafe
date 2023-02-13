@@ -14,26 +14,36 @@
 
 </div>
 <div class="form">
-<form method="post">
-    <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name"  name="name"/>
-        <br/>
-    </div>
-    <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" class="form-control" id="email"  name="emailaddress"/>
-    <br/>
-        </div>
-    <div class="form-group">
-            <label for="message">Message</label>
-            <input  class="form-control" id="message"  name="message"/>
-    <br/>
+    <h4>Got any feedback? We are happy to hear from you! </h4>
+        <hr/>
+        <form method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name"/>
+                @* <br/> *@
             </div>
-    <div>
-        <button type="submit" class="button" value="Send email">Submit</button>
-    </div>
-    
-</form>
+            <div asp-validation-summary="All"></div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" name="emailaddress"/>
+                <br/>
+            </div>
+            <div class="form-group">
+                <label  for="message">Message</label>
+                <input class="form-control"  id="message" size="1000" name="message"/>
+                <br/>
+            </div>
+            <div>
+                <button type="submit"  class="button" value="Send email">Submit</button>
+            </div>
+        </form>
+        @if (Model.isSend == "send")
+        {
+            <p class="msg1">Your message is sent!</p>
+        }
+        @if (Model.isSend == "failed")
+        {
+            <p class="msg1">There was an error sending your message!</p>
+        }
 </div>
 

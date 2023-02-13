@@ -100,26 +100,65 @@ public class Checkout : PageModel
     
     public async Task<IActionResult> OnPostIncreaseAsync(int id)
     {
+        var currentOrder = _db.OrderHistories
+            .FromSqlRaw("SELECT OrderNo, Email From OrderHistories")
+            .OrderByDescending(b => b.OrderNo)
+            .FirstOrDefault();
+
+   
+            Order.OrderNo = currentOrder.OrderNo + 1;
+        
+
         var user = await _UserManager.GetUserAsync(User);
+        Order.Email = user.Email;
+        _db.OrderHistories.Add(Order);
+
         CheckoutCustomer customer = await _db
             .CheckoutCustomers
             .FindAsync(user.Email);
-        
-        var basketItem = 
+
+        var basketItems = 
             _db.BasketItems
-                .FromSqlRaw("SELECT * From BasketItems " +
-                            "WHERE BasketID = {0} and StockID = {1}", customer.BasketID, id)
-                .FirstOrDefault();
-        
-        if (basketItem == null)
+                .FromSqlRaw("SELECT StockID, BasketID, Quantity From BasketItems " +
+                            "WHERE BasketID = {0}", customer.BasketID)
+                .ToList();
+
+        foreach(var item in basketItems) 
         {
-            return NotFound();
+            OrderItem oi = new OrderItem
+            {
+                OrderNo = Order.OrderNo,
+                StockID = item.StockID,
+                Quantity = item.Quantity
+            };
+            _db.OrderItems.Add(oi);
+            _db.BasketItems.Remove(item);
         }
-        
-        basketItem.Quantity++;
-        _db.BasketItems.Update(basketItem);
+
         await _db.SaveChangesAsync();
-        return RedirectToPage();
+
+        return RedirectToPage("/Checkout/Checkout");
+        
+        // var user = await _UserManager.GetUserAsync(User);
+        // CheckoutCustomer customer = await _db
+        //     .CheckoutCustomers
+        //     .FindAsync(user.Email);
+        //
+        // var basketItem = 
+        //     _db.BasketItems
+        //         .FromSqlRaw("SELECT * From BasketItems " +
+        //                     "WHERE BasketID = {0} and StockID = {1}", customer.BasketID, id)
+        //         .FirstOrDefault();
+        //
+        // if (basketItem == null)
+        // {
+        //     return NotFound();
+        // }
+        //
+        // basketItem.Quantity++;
+        // _db.BasketItems.Update(basketItem);
+        // await _db.SaveChangesAsync();
+        // return RedirectToPage();
     
     }
 
