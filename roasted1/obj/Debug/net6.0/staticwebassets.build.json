@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7v70nj52zP4pe9nieFrua458QMUR250uUmdA/HfGuEU=",
+  "Hash": "SXmEtLI2bZQvWJoefOcSYlqD0v/R0+iF0+QeO9kU6zI=",
   "Source": "roasted1",
   "BasePath": "_content/roasted1",
   "Mode": "Default",
@@ -729,6 +729,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/CoffeeImages/pexels-anna-urlapova-2956954.jpg"
+    },
+    {
+      "Identity": "/Users/swarnimasingh/Desktop/roasted1/roasted1/wwwroot/CoffeeImages/pexels-knitting-needles-9638987.jpg",
+      "SourceId": "roasted1",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/swarnimasingh/Desktop/roasted1/roasted1/wwwroot/",
+      "BasePath": "_content/roasted1",
+      "RelativePath": "CoffeeImages/pexels-knitting-needles-9638987.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/CoffeeImages/pexels-knitting-needles-9638987.jpg"
     },
     {
       "Identity": "/Users/swarnimasingh/Desktop/roasted1/roasted1/wwwroot/CoffeeImages/pexels-pixabay-221082.jpg",
