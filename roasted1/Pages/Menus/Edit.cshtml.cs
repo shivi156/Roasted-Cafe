@@ -21,8 +21,6 @@ namespace roasted1.Pages.Menus
     public class EditModel : PageModel
     
     {
-        
-        
         private readonly roasted1.Data.roasted1Context _context;
 
         public EditModel(roasted1.Data.roasted1Context context)
@@ -49,8 +47,7 @@ namespace roasted1.Pages.Menus
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
+    
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)

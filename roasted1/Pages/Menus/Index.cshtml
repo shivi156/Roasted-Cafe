@@ -14,25 +14,23 @@
 <h1 class="display-5">menu</h1>
 
 <div>
-    <img class="background" src="~/CoffeeImages/coffee8.jpg">
+    <img class="background" src="~/CoffeeImages/coffee8.jpg" alt="bg image">
 </div>
+
+
+@* if a user is logged in and they are not the Admin, then "proceed to checkout' option on the menu page
+is shown to the users as admins would not require 'proceed to checkout' as they are not buying as admins
+and it is accessible and easy for the user to click that button if wanting to go to the checkout *@
 
 @if (User.Identity.IsAuthenticated)
 {
     @if (User.IsInRole("Admin") == false)
     {
         <a class="button1" asp-page="/Checkout/Checkout">Proceed to Checkout</a>
-    @* adding a button on the menu page to head to checkout page without going to the nav bar *@
-        @* <script> *@
-        @* function navigateToCheckout() { *@
-        @*     window.location.href = "/Checkout/Checkout"; *@
-        @* } *@
-        @* </script> *@
-        @* <!-- Your menu content --> *@
-        @* <button class="button1" onclick="navigateToCheckout()"> Proceed to Checkout </button> *@
     }
 }
 
+@* if the User is Admin then the Create New option is shown for them to add items to the menu *@
 @if (User.IsInRole("Admin"))
 {
     <p>
@@ -40,11 +38,10 @@
     </p>
 }
 
-
+@* search bar for the menu *@
 <input class="search-bar" type="text" id="myInput" onkeyup="myFunction()" placeholder="search menu..">
-<form method="post">
-    
 
+<form method="post">
     <table class="table">
 
         <thead>
@@ -54,6 +51,7 @@
             <th>Price</th>
             <th>Info</th>
             <th>Image</th>
+            
             @if (User.Identity.IsAuthenticated)
             {
                 <th class="right-alignment">Select Item to Add to Cart</th>
@@ -61,9 +59,9 @@
         </tr>
         </thead>
         <tbody>
+        
         @foreach (var item in Model.Menu)
         {
-
             <tr class="text-white">
                 <td>
                     @Html.DisplayFor(modelItem => item.ItemName)
@@ -87,10 +85,8 @@
                         </td>
                     }
                 }
-
-
-
-                @* the user can only edit.  *@
+                
+                @* only the Admin can edit and delete.  *@
                 @if (User.IsInRole("Admin"))
                 {
                     <td>
@@ -98,6 +94,8 @@
                         <a class="button" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
                     </td>
                 }
+                
+                @* Only customers can add to cart and not the Admin as it is not required for the admin *@
                 @if (User.Identity.IsAuthenticated)
                 {
                     @if (User.IsInRole("Admin") == false)
@@ -107,8 +105,6 @@
                                     asp-route-itemID="@item.Id">
                                 Add to Cart
                             </button>
-
-
                         </td>
                     }
                 }
@@ -120,6 +116,7 @@
 
 </form>
 
+@* code adapted from w3schools *@
 <script>
 function myFunction() {
   // Declare variables
@@ -144,6 +141,5 @@ function myFunction() {
 }
 </script>
 
-
-
+@* end of adapted code *@
 

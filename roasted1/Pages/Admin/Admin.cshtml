@@ -6,35 +6,33 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-
-
 <h2 class="display-5">Admin</h2>
 <div>
-    <img class = "background" src="~/CoffeeImages/coffee10.jpg">
+    <img class = "background" src="~/CoffeeImages/coffee10.jpg" alt="background image">
 </div>
 
+
+    @* The following authentication has been used to determine if the user is logged in or not.
+    Once confirmed that the user is logged in, the role of the user is checked to know if they are admin or not. 
+    *@
 @if (User.Identity.IsAuthenticated)
-{
+    {
+    // if the user is admin, then the 'manage menu' option is accessible to the user,
+    // which takes them to the menu where they can Create, edit or delete menu items. 
+  
     @if (User.IsInRole("Admin"))
         
     {
-        
         <a class="button1" asp-page="/Menus/Index">Manage Menu</a>
-        @* <script> *@
-        @* function navigateToMenu() { *@
-        @*     window.location.href = "/Menus/Index"; *@
-        @* } *@
-        @* </script> *@
-        @* <!-- Your menu content --> *@
-        @* <button class="button1" onclick="navigateToMenu()"> Manage Menu </button> *@
-        
-        
-            
-        
     }
 
+    // if the user is not admin, then a message is shown saying 'Not Authorised!', 
+    // Although the code has been changed so that 'Admin' in the navbar and footer is seen
+    // only after if user logged in is Admin. 
+    // However, if we change the code or in case the customer ends up coming to the Admin page,
+    // They will get the following message. 
+    
     @if (User.IsInRole("Admin") == false)
     {
         <h1 class="display-7">Not Authorised! </h1>
-    }
-}
+    }}

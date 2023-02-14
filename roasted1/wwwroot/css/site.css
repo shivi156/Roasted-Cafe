@@ -1,3 +1,5 @@
+/*a lot of hit and trials have been used in the following code*/
+
 .background {
   max-width: 100%;
   background-position: center;
@@ -154,10 +156,6 @@ body {
   image-rendering: -moz-crisp-edges;
 }
 
-
-
-
-
 .button {
   background-color: black; /* Green */
   font-family: "Poiret One", cursive;
@@ -204,7 +202,6 @@ body {
   /*font-weight: bolder;*/
   font-size: 18px;
   font-weight: bolder;
-
   color: white;
   margin-top: 5px;
   margin-bottom: 10px;

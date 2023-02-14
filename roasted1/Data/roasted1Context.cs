@@ -17,7 +17,6 @@ namespace roasted1.Data
             : base(options)
         {
             
-            
         }
 
         public DbSet<roasted1.Models.Menu> Menu { get; set; } = default!;
@@ -28,9 +27,7 @@ namespace roasted1.Data
         public DbSet<OrderItem> OrderItems { get; set; }
         [NotMapped]
         public DbSet<CheckoutItems> CheckoutItems { get; set; }
-
-
-
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

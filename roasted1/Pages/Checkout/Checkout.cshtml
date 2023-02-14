@@ -11,8 +11,7 @@
     <h1 class="display-5">checkout</h1>
 
 <div>
-    <img class = "background" src="~/CoffeeImages/coffee3.jpg">
-  
+    <img class = "background" alt="background image" src="~/CoffeeImages/coffee3.jpg">
 </div>
 
 <form method="post">
@@ -27,6 +26,8 @@
         </tr>
         </thead>
         <tbody class="text-white">
+        @* The following code is used to check if the number of items in the cart is 0 or more than 0,
+        If the number is 0 then the checkout page displays a message saying "Your cart is empty". *@
         @if (Model.Items.Count == 0)
         {
             <p class="msg">Your cart is empty!</p>
@@ -51,32 +52,28 @@
         }
         </tbody>
     </table>
+    
 
-    @* the user will see the 'Buy' button only when they have something in their cart,
+    @* The user will see the 'Buy' button only when they have something in their cart,
         and not when their cart is empty. This will not create confusion.  *@
-
+    
     @if (Model.Items.Count > 0)
     {
         <button class="button1" type="submit" asp-page-handler="Buy">Buy</button>
     }
-    
-
 
 </form>
 
-    @if (User.Identity.IsAuthenticated)
+
+@* when the user is logged in and is in the checkout page, the 'Previous button is shown to go back to the menu
+if they want to add more items, user authentication is used to access checkout to make a database record for
+every user.  *@
+
+@if (User.Identity.IsAuthenticated)
     {
         <a class="button2" asp-page="/Menus/Index"> Previous </a>
     }
 
-
-@* <script> *@
-    @* function navigateToMenu() { *@
-    @*     window.location.href = "/Menus/Index"; *@
-    @* } *@
-    @* </script> *@
-    @* <!-- Your menu content --> *@
-    @* <button class="button2" onclick="navigateToMenu()"> Previous </button> *@
 
         
 

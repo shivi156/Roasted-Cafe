@@ -10,7 +10,7 @@ namespace roasted1.Pages.Contact;
 
 public class Contact : PageModel
 {
-    
+    // code adapted from ZetBit (youtube), 2022 
     public string isSend { get; set; }
 
     public void OnPost()
@@ -50,5 +50,6 @@ public class Contact : PageModel
         smtpClient.Send(message);
         return true;
     }
-
+    
+    // end of adapted code
 }

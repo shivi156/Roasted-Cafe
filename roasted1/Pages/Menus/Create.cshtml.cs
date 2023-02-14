@@ -31,7 +31,6 @@ namespace roasted1.Pages.Menus
         public Menu Menu { get; set; } = default!;
         
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
           if (!ModelState.IsValid || _context.Menu == null || Menu == null)
@@ -51,8 +50,7 @@ namespace roasted1.Pages.Menus
           _context.Menu.Add(Menu);
           await _context.SaveChangesAsync();
           return RedirectToPage("/Menus/Index");
-
-
+          
         }
     }
 }

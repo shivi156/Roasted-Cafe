@@ -37,6 +37,8 @@
                         <a class="nav-link text-dark" asp-area="" asp-page="/Menus/Index">Menu</a>
                     </li>
                     
+                    @* these options are only visible when the Admin in not logged in as 
+                        they are for customers*@
                     
                     @if (User.IsInRole("Admin") == false)
                     {
@@ -47,21 +49,27 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Contact/Contact">Contact Us</a>
                         </li>
                     }
+                    
+                    @* this option is only visible to the admin *@
                     @if (User.IsInRole("Admin"))
                     {
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Admin/Admin">Admin</a>
                         </li>
                     }
-                        @if (SignInManager.IsSignedIn(User))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark hello" asp-area="">Hello @UserManager.GetUserName(User)!</a>
-                                @* <h2 class="text-center border-bottom"></h2> *@
-                            </li>                                                                          
-                        }
+                    
+                    @* greeting the user signed-in on the navbar *@
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark hello" asp-area="">Hello @UserManager.GetUserName(User)!</a>
+                            @* <h2 class="text-center border-bottom"></h2> *@
+                        </li>                                                                          
+                    }
                 </ul>
-
+                
+                @* the log out button is only shown when the user is logged in *@
+                
                 @if (User.Identity.IsAuthenticated)
                 {
                     <form asp-page="/Account/Logout" method="post">
@@ -79,6 +87,7 @@
         </div>
     </nav>
 </header>
+
 <div class="container">
     <main role="main" class="pb-3">
         @RenderBody()
